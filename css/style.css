@@ -1,0 +1,195 @@
+/* Berkshire Trips - Premium Livery Service Styles */
+
+:root {
+  --forest-green: #0f2c24;
+  --deep-green: #0a1f1a;
+  --gold: #c9a227;
+  --gold-light: #e8d5a3;
+  --cream: #f8f5f0;
+  --warm-gray: #6b6b5f;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Elegant headings */
+h1, h2, .heading-serif {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+/* Since no external font, use nice fallback */
+h1, h2 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Hero */
+.hero-bg {
+  background-image: linear-gradient(rgba(15, 44, 36, 0.55), rgba(10, 31, 26, 0.65)), url('../images/1.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-attachment: fixed;
+}
+
+/* Gold accent buttons */
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--deep-green);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold:hover {
+  background-color: #d4b34a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.btn-green {
+  background-color: var(--forest-green);
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.btn-green:hover {
+  background-color: #162d27;
+  transform: translateY(-1px);
+}
+
+/* Cards */
+.service-card, .fleet-card, .testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover, .fleet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Gallery */
+.gallery-img {
+  transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-img:hover {
+  transform: scale(1.015);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Pricing calculator */
+#fare-result {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--forest-green);
+}
+
+/* Town pills */
+.town-pill {
+  background-color: #f1ede4;
+  color: var(--forest-green);
+  font-size: 0.875rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.town-pill:hover {
+  background-color: var(--gold-light);
+  color: var(--deep-green);
+}
+
+/* Modal */
+.modal {
+  animation: modalPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Form inputs */
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"], 
+input[type="number"], textarea, select {
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus,
+input[type="date"]:focus, input[type="time"]:focus, input[type="number"]:focus,
+textarea:focus, select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+  outline: none;
+}
+
+/* Range slider */
+input[type="range"] {
+  accent-color: var(--gold);
+}
+
+/* Navbar */
+.navbar-scrolled {
+  background-color: rgba(248, 245, 240, 0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 0 rgba(0,0,0,0.05);
+}
+
+/* Lightbox */
+#lightbox {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+#lightbox img {
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d1c9b8, transparent);
+}
+
+/* Footer */
+footer {
+  background-color: var(--deep-green);
+}
+
+/* Mobile nav */
+.mobile-nav {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* Subtle scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Trust badges */
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--warm-gray);
+}

@@ -1,0 +1,33 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (if any added later)
+node_modules/
+
+# Build artifacts (if using any bundler later)
+dist/
+build/
+
+# Environment
+.env
+.env.local
+
+# Large original image sources (keep only optimized)
+# (we're keeping the images/ folder as-is for now)

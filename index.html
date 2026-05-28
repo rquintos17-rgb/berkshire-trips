@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berkshire Trips • Premium Livery Service in the Berkshires</title>
+  <meta name="description" content="Professional livery and chauffeur service in Berkshire County, Massachusetts. $10 base + $1 per mile. Reliable airport transfers, local rides, and special events.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&amp;family=Inter:wght@400;500;600&amp;display=swap');
+    
+    .heading-serif {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #c9a227;
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover:after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-[#f8f5f0] text-[#1f2937] antialiased">
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#f8f5f0]/80 backdrop-blur-md transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-x-3">
+          <div class="w-10 h-10 rounded-full bg-[#0f2c24] flex items-center justify-center flex-shrink-0">
+            <span class="text-[#c9a227] text-2xl leading-none mt-0.5">BT</span>
+          </div>
+          <div>
+            <div class="font-semibold text-2xl tracking-tight text-[#0f2c24]">Berkshire Trips</div>
+            <div class="text-[10px] text-[#6b6b5f] -mt-1 tracking-[1.5px]">LIVERY SERVICE</div>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+          <a href="#about" class="nav-link text-[#0f2c24] hover:text-[#c9a227]">About</a>
+          <a href="#services" class="nav-link text-[#0f2c24] hover:text-[#c9a227]">Services</a>
+          <a href="#pricing" class="nav-link text-[#0f2c24] hover:text-[#c9a227]">Pricing</a>
+          <a href="#gallery" class="nav-link text-[#0f2c24] hover:text-[#c9a227]">Gallery</a>
+          <a href="#contact" class="nav-link text-[#0f2c24] hover:text-[#c9a227]">Contact</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-x-3">
+          <a href="#pricing" 
+             class="px-5 py-2.5 rounded-lg text-sm font-medium border border-[#0f2c24]/15 text-[#0f2c24] hover:bg-white transition-colors">
+            View Rates
+          </a>
+          <button data-open-booking
+                  class="px-6 py-2.5 rounded-lg text-sm font-semibold btn-gold shadow-sm">
+            Reserve Your Ride
+          </button>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="hamburger" class="md:hidden w-10 h-10 flex items-center justify-center text-[#0f2c24]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-nav" class="mobile-nav hidden md:hidden fixed inset-0 top-[79px] bg-[#f8f5f0] z-40 px-6 pt-8">
+      <div class="flex flex-col text-lg font-medium space-y-5">
+        <a href="#about" class="py-1 text-[#0f2c24]">About</a>
+        <a href="#services" class="py-1 text-[#0f2c24]">Services</a>
+        <a href="#pricing" class="py-1 text-[#0f2c24]">Pricing</a>
+        <a href="#gallery" class="py-1 text-[#0f2c24]">Gallery</a>
+        <a href="#contact" class="py-1 text-[#0f2c24]">Contact</a>
+        
+        <div class="pt-4 border-t border-[#d1c9b8] flex flex-col gap-3">
+          <button data-open-booking
+                  class="w-full py-3.5 rounded-xl font-semibold btn-gold text-base">
+            Reserve Your Ride
+          </button>
+          <a href="#pricing" class="text-center py-3 text-[#0f2c24] border border-[#0f2c24]/15 rounded-xl">View Rates</a>
+        </div>
+      </div>
+      <button id="mobile-close" class="absolute top-5 right-6 text-[#0f2c24]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-bg h-[100dvh] min-h-[640px] flex items-center pt-16 relative">
+    <div class="max-w-5xl mx-auto px-6 text-white">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur px-4 py-1 rounded-full text-xs tracking-[2px] font-medium mb-6 border border-white/30">
+          EST. 2017 • BERKSHIRE COUNTY, MA
+        </div>
+        
+        <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter leading-[0.95] mb-6">
+          Premium livery service<br>in the Berkshires.
+        </h1>
+        <p class="max-w-md text-xl text-white/90 mb-10">
+          Professional chauffeurs. Immaculate vehicles.<br>
+          Unforgettable journeys through Western Massachusetts.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <button data-open-booking 
+                  class="px-8 py-4 text-lg font-semibold rounded-2xl btn-gold flex items-center gap-x-3 shadow-lg">
+            <span>Book Your Trip</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7V3" />
+            </svg>
+          </button>
+          
+          <a href="#pricing" 
+             class="px-8 py-4 text-lg font-medium rounded-2xl border-2 border-white/70 text-white hover:bg-white/10 transition-colors flex items-center">
+            See our rates
+          </a>
+        </div>
+        
+        <div class="mt-12 flex items-center gap-x-8 text-sm">
+          <div class="flex items-center -space-x-2">
+            <div class="w-7 h-7 rounded-full bg-white/90 border border-white"></div>
+            <div class="w-7 h-7 rounded-full bg-white/70 border border-white"></div>
+            <div class="w-7 h-7 rounded-full bg-white/50 border border-white"></div>
+          </div>
+          <div class="text-white/75 text-xs tracking-wider">TRUSTED BY LOCALS &amp; VISITORS ALIKE</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/60 text-xs tracking-widest">
+      <div>SCROLL TO DISCOVER</div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-1 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </header>
+
+  <!-- TRUST BAR -->
+  <div class="border-b border-[#d1c9b8] bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-y-4 text-center">
+      <div class="trust-badge justify-center">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span>Licensed &amp; Fully Insured</span>
+      </div>
+      <div class="trust-badge justify-center">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812z" clip-rule="evenodd"/></svg>
+        <span>Background-Checked Chauffeurs</span>
+      </div>
+      <div class="trust-badge justify-center">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/><path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"/></svg>
+        <span>Late-Model Luxury Fleet</span>
+      </div>
+      <div class="trust-badge justify-center">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+        <span>On-Time Guarantee</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+    <div class="grid md:grid-cols-12 gap-x-12 items-center">
+      <div class="md:col-span-7">
+        <div class="uppercase tracking-[3px] text-xs font-semibold text-[#c9a227] mb-3">A LOCAL TRADITION</div>
+        <h2 class="heading-serif text-5xl tracking-[-1.5px] leading-none text-[#0f2c24] mb-8">Your trusted driver<br>across the Berkshires.</h2>
+        
+        <div class="prose prose-lg text-[#4b4b42] max-w-2xl">
+          <p class="mb-5">Berkshire Trips is a family-owned livery service proudly based in Adams, Massachusetts. For nearly a decade we have provided safe, discreet, and luxurious transportation for residents, business travelers, and visitors who appreciate the beauty and culture of the Berkshires.</p>
+          <p>Whether you’re heading to Tanglewood for an evening concert, catching a flight at Albany or Logan, or simply need a reliable ride between Great Barrington and Williamstown, we deliver the highest standard of service with a personal touch.</p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <div class="inline-flex items-center rounded-xl bg-white px-5 py-3 text-sm border border-[#d1c9b8]">
+            <span class="font-semibold text-[#0f2c24]">2017</span>
+            <span class="ml-2 text-[#6b6b5f]">— Serving the Berkshires</span>
+          </div>
+          <div class="inline-flex items-center rounded-xl bg-white px-5 py-3 text-sm border border-[#d1c9b8]">
+            <span class="font-semibold text-[#0f2c24]">4.98</span>
+            <span class="ml-2 text-[#6b6b5f]">— Average customer rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 mt-10 md:mt-0">
+        <div class="relative rounded-3xl overflow-hidden shadow-xl border border-[#d1c9b8]/60">
+          <img src="images/6.jpg" alt="Professional chauffeur opening door for guests at a historic Berkshire estate" class="w-full aspect-[16/12] object-cover">
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0f2c24] to-transparent h-2/3"></div>
+          <div class="absolute bottom-6 left-6 text-white">
+            <div class="text-xs tracking-widest opacity-75">PROFESSIONAL • RELIABLE</div>
+            <div class="text-xl font-medium">Every mile, every time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-6xl mx-auto"></div>
+
+  <!-- SERVICES -->
+  <section id="services" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+      <div>
+        <div class="uppercase text-[#c9a227] tracking-[2.5px] text-xs font-semibold mb-2">WHAT WE OFFER</div>
+        <h3 class="heading-serif text-[#0f2c24] text-4xl tracking-tight">Thoughtful service for every occasion.</h3>
+      </div>
+      <a href="#contact" class="hidden md:inline text-sm font-medium text-[#c9a227] hover:underline mt-2">Need something specific? Let us know →</a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Service cards -->
+      <div class="service-card bg-white border border-[#d1c9b8]/70 rounded-3xl p-7">
+        <div class="w-11 h-11 rounded-2xl bg-[#0f2c24] flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#c9a227]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          </svg>
+        </div>
+        <h4 class="font-semibold text-2xl text-[#0f2c24] mb-2">Airport Transfers</h4>
+        <p class="text-[#4b4b42]">Reliable service to Albany (ALB), Bradley (BDL), Logan (BOS), and regional airports. Flight tracking included. Meet-and-greet available.</p>
+        <div class="mt-5 text-xs font-medium text-[#c9a227]">MOST POPULAR</div>
+      </div>
+
+      <div class="service-card bg-white border border-[#d1c9b8]/70 rounded-3xl p-7">
+        <div class="w-11 h-11 rounded-2xl bg-[#0f2c24] flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#c9a227]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 20h5v-2a3 3 0 01-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 01-2 2 2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2z" />
+          </svg>
+        </div>
+        <h4 class="font-semibold text-2xl text-[#0f2c24] mb-2">Corporate &amp; Executive</h4>
+        <p class="text-[#4b4b42]">Discreet transportation for meetings, conferences, and client entertainment. Professional chauffeurs with flexible scheduling and billing.</p>
+      </div>
+
+      <div class="service-card bg-white border border-[#d1c9b8]/70 rounded-3xl p-7">
+        <div class="w-11 h-11 rounded-2xl bg-[#0f2c24] flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#c9a227]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        </div>
+        <h4 class="font-semibold text-2xl text-[#0f2c24] mb-2">Weddings &amp; Events</h4>
+        <p class="text-[#4b4b42]">Make the day special. Multiple vehicles for bridal parties, elegant arrivals at venues, and stress-free transportation for your guests.</p>
+      </div>
+
+      <div class="service-card bg-white border border-[#d1c9b8]/70 rounded-3xl p-7">
+        <div class="w-11 h-11 rounded-2xl bg-[#0f2c24] flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#c9a227]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1v-5m-6 0a1 1 0 001-1v-4" />
+          </svg>
+        </div>
+        <h4 class="font-semibold text-2xl text-[#0f2c24] mb-2">Local &amp; Regional Rides</h4>
+        <p class="text-[#4b4b42]">Door-to-door service anywhere in Berkshire County. Perfect for dinner in Great Barrington, shopping in Lenox, or medical appointments.</p>
+      </div>
+
+      <div class="service-card bg-white border border-[#d1c9b8]/70 rounded-3xl p-7">
+        <div class="w-11 h-11 rounded-2xl bg-[#0f2c24] flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#c9a227]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M14 5l7 7-7 7m-4 0l7-7-7-7" />
+          </svg>
+        </div>
+        <h4 class="font-semibold text-2xl text-[#0f2c24] mb-2">Scenic &amp; Custom Tours</h4>
+        <p class="text-[#4b4b42]">Half or full-day private tours of the Berkshires. Wineries, art museums, historic homes, foliage routes — we customize every itinerary.</p>
+      </div>
+
+      <div class="service-card bg-white border border-[#d1c9b8]/70 rounded-3xl p-7">
+        <div class="w-11 h-11 rounded-2xl bg-[#0f2c24] flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#c9a227]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2" />
+          </svg>
+        </div>
+        <h4 class="font-semibold text-2xl text-[#0f2c24] mb-2">Non-Emergency Medical</h4>
+        <p class="text-[#4b4b42]">Comfortable, on-time transportation to medical appointments and procedures with extra assistance and care for every passenger.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING + CALCULATOR -->
+  <section id="pricing" class="bg-[#0f2c24] py-16 text-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex flex-col lg:flex-row gap-x-16 gap-y-12 items-start">
+        
+        <!-- Left info -->
+        <div class="lg:w-5/12">
+          <div class="uppercase text-[#c9a227] tracking-[3px] text-xs font-medium mb-3">TRANSPARENT PRICING</div>
+          <h3 class="heading-serif text-5xl leading-none tracking-[-1.3px] mb-6">Simple, honest fares.<br>No surprises.</h3>
+          
+          <div class="space-y-6 text-white/80">
+            <p>Our straightforward pricing makes planning easy. Pay only for the miles you travel.</p>
+            
+            <div>
+              <div class="flex items-baseline gap-x-2 mb-1">
+                <span class="text-6xl font-semibold tracking-tighter">$10</span>
+                <span class="text-2xl text-white/60">base</span>
+              </div>
+              <div class="flex items-baseline gap-x-2">
+                <span class="text-6xl font-semibold tracking-tighter">+ $1</span>
+                <span class="text-2xl text-white/60">per mile</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-9 text-xs leading-relaxed text-white/60 space-y-1">
+            <div>• One-way fare. Round trips discounted 15%.</div>
+            <div>• Tolls and parking charged at cost when applicable.</div>
+            <div>• Gratuity is always appreciated but never expected.</div>
+            <div>• 24-hour cancellation policy for full refund.</div>
+          </div>
+        </div>
+
+        <!-- Calculator -->
+        <div class="lg:w-7/12 bg-white rounded-3xl p-8 lg:p-10 text-[#1f2937] shadow-xl w-full">
+          <div class="flex items-center justify-between mb-7">
+            <div>
+              <div class="font-semibold text-xl text-[#0f2c24]">Fare Calculator</div>
+              <div class="text-sm text-[#6b6b5f]">Estimate your trip cost instantly</div>
+            </div>
+            <div class="text-right">
+              <div id="fare-result" class="font-semibold tabular-nums text-[#0f2c24]">$22.00</div>
+              <div class="text-xs text-[#6b6b5f] -mt-1">estimated one-way</div>
+            </div>
+          </div>
+
+          <!-- Miles input -->
+          <div class="mb-2 flex justify-between items-center text-sm">
+            <label class="font-medium text-[#0f2c24]">Distance (miles)</label>
+            <div class="flex items-center gap-x-2">
+              <input id="miles-input" type="number" min="1" max="200" value="12" 
+                     class="w-20 text-right font-mono border border-[#d1c9b8] rounded-xl px-3 py-1.5 focus:border-[#c9a227]">
+              <span class="text-[#6b6b5f]">mi</span>
+            </div>
+          </div>
+
+          <input id="miles-slider" type="range" min="1" max="150" step="1" value="12"
+                 class="w-full accent-[#c9a227] mb-4">
+
+          <!-- Quick presets -->
+          <div class="flex flex-wrap gap-2 mb-7">
+            <button data-preset-miles="8" class="text-xs px-3.5 py-1 rounded-full border border-[#d1c9b8] hover:bg-[#f8f5f0]">Local 8 mi</button>
+            <button data-preset-miles="18" class="text-xs px-3.5 py-1 rounded-full border border-[#d1c9b8] hover:bg-[#f8f5f0]">Pittsfield–Lenox</button>
+            <button data-preset-miles="35" class="text-xs px-3.5 py-1 rounded-full border border-[#d1c9b8] hover:bg-[#f8f5f0]">To Albany Airport</button>
+            <button data-preset-miles="55" class="text-xs px-3.5 py-1 rounded-full border border-[#d1c9b8] hover:bg-[#f8f5f0]">Great Barrington–Logan</button>
+          </div>
+
+          <div class="text-xs text-[#6b6b5f] mb-4">Prices shown are estimates. Final fare based on actual odometer reading.</div>
+
+          <button id="book-from-calculator"
+                  class="w-full py-4 rounded-2xl text-base font-semibold btn-gold flex items-center justify-center gap-x-2">
+            <span>Reserve this trip</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="max-w-6xl mx-auto px-6 pt-16 pb-12">
+    <div class="grid md:grid-cols-2 gap-x-14 gap-y-10 items-center">
+      <div>
+        <div class="uppercase tracking-[3px] text-xs font-semibold text-[#c9a227]">COVERAGE</div>
+        <h3 class="heading-serif text-[#0f2c24] text-4xl tracking-tight mt-3 mb-6">We serve every corner<br>of Berkshire County.</h3>
+        
+        <p class="text-[#4b4b42] max-w-md">From the hills of Williamstown to the southern Berkshires, we know every back road and scenic route. Same-day service available throughout the county.</p>
+
+        <div class="mt-8">
+          <a href="#contact" data-open-booking class="inline-flex items-center text-sm font-semibold text-[#c9a227] hover:gap-x-2 transition-all gap-x-1.5 group">
+            REQUEST A QUOTE FOR YOUR ROUTE 
+            <span class="group-hover:translate-x-0.5 transition">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-sm">
+          <div class="town-pill">Adams</div>
+          <div class="town-pill">Pittsfield</div>
+          <div class="town-pill">North Adams</div>
+          <div class="town-pill">Williamstown</div>
+          <div class="town-pill">Lenox</div>
+          <div class="town-pill">Stockbridge</div>
+          <div class="town-pill">Great Barrington</div>
+          <div class="town-pill">Lee</div>
+          <div class="town-pill">Sheffield</div>
+          <div class="town-pill">Dalton</div>
+          <div class="town-pill">Cheshire</div>
+          <div class="town-pill">Lanesborough</div>
+          <div class="town-pill">Otis</div>
+          <div class="town-pill">Sandisfield</div>
+          <div class="town-pill">Tyringham</div>
+          <div class="town-pill col-span-2 sm:col-span-1">+ all surrounding towns</div>
+        </div>
+        
+        <div class="mt-7 text-xs text-[#6b6b5f]">
+          Also available for trips to the Hudson Valley, Capital Region, and Boston metro.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section class="bg-white border-y border-[#d1c9b8]">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="mb-9">
+        <div class="uppercase tracking-[3px] text-xs font-semibold text-[#c9a227]">THE FLEET</div>
+        <h3 class="heading-serif text-4xl tracking-tight text-[#0f2c24] mt-2">Meticulously maintained.<br>Exceptionally comfortable.</h3>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="fleet-card border border-[#d1c9b8] rounded-3xl overflow-hidden bg-[#f8f5f0]">
+          <img src="images/3.jpg" alt="Luxury SUV overlooking the scenic Berkshire mountains" class="w-full h-56 object-cover">
+          <div class="p-7">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <div class="font-semibold text-xl">Premium SUV</div>
+                <div class="text-xs text-[#c9a227] font-medium tracking-widest">UP TO 6 PASSENGERS</div>
+              </div>
+            </div>
+            <p class="text-sm text-[#4b4b42]">Spacious Cadillac Escalade or equivalent. Perfect for families, groups, or extra luggage. All-wheel drive for any season.</p>
+            <div class="mt-5 text-[13px] text-[#6b6b5f]">Leather • Panoramic roof • Climate zones • USB-C + wireless charging</div>
+          </div>
+        </div>
+
+        <div class="fleet-card border border-[#d1c9b8] rounded-3xl overflow-hidden bg-[#f8f5f0]">
+          <img src="images/6.jpg" alt="Chauffeur with black luxury sedan at Berkshire estate" class="w-full h-56 object-cover">
+          <div class="p-7">
+            <div class="flex justify-between items-start mb-3">
+              <div>
+                <div class="font-semibold text-xl">Executive Sedan</div>
+                <div class="text-xs text-[#c9a227] font-medium tracking-widest">3–4 PASSENGERS</div>
+              </div>
+            </div>
+            <p class="text-sm text-[#4b4b42]">Mercedes-Benz E-Class, Lincoln Continental, or comparable. The gold standard for airport runs and business travel.</p>
+            <div class="mt-5 text-[13px] text-[#6b6b5f]">Quiet cabin • Privacy glass available • Complimentary water &amp; mints</div>
+          </div>
+        </div>
+
+        <div class="fleet-card border border-[#d1c9b8] rounded-3xl overflow-hidden bg-[#f8f5f0]">
+          <div class="h-56 bg-[#0f2c24] flex items-center justify-center">
+            <div class="text-center px-8">
+              <div class="uppercase text-xs tracking-[2px] text-[#c9a227] mb-1">LUXURY TRANSPORT</div>
+              <div class="text-white text-3xl font-semibold tracking-tight">Mercedes Sprinter</div>
+              <div class="text-white/70 mt-1 text-sm">Up to 14 passengers</div>
+            </div>
+          </div>
+          <div class="p-7">
+            <p class="text-sm text-[#4b4b42]">Ideal for wedding parties, corporate groups, and large families. Reclining captain’s chairs, mood lighting, and generous luggage space.</p>
+            <div class="mt-5 text-[13px] text-[#6b6b5f]">Power outlets • Wi-Fi • Privacy partition • Beverage service available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="max-w-6xl mx-auto px-6 pt-16 pb-14">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="uppercase text-[#c9a227] text-xs font-semibold tracking-widest">THE BERKSHIRES</div>
+        <h3 class="heading-serif text-[#0f2c24] text-4xl tracking-tight mt-1">A beautiful place to travel through.</h3>
+      </div>
+      <div class="hidden md:block text-sm text-[#6b6b5f]">Click any image to enlarge</div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="overflow-hidden rounded-3xl border border-[#d1c9b8]/50">
+        <img src="images/1.jpg" alt="Luxury sedan on a winding road through vibrant autumn Berkshire mountains" data-caption="Golden hour drive through the Berkshires" class="gallery-img w-full aspect-video object-cover">
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-[#d1c9b8]/50">
+        <img src="images/2.jpg" alt="Historic Main Street in Adams, Massachusetts with elegant black livery car" data-caption="Main Street, Adams — our hometown" class="gallery-img w-full aspect-video object-cover">
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-[#d1c9b8]/50">
+        <img src="images/3.jpg" alt="Premium SUV at a scenic overlook in the colorful Berkshire hills" data-caption="Overlook near Mount Greylock" class="gallery-img w-full aspect-video object-cover">
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-[#d1c9b8]/50">
+        <img src="images/4.jpg" alt="Black luxury car at MASS MoCA contemporary art museum at twilight" data-caption="MASS MoCA, North Adams" class="gallery-img w-full aspect-video object-cover">
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-[#d1c9b8]/50">
+        <img src="images/5.jpg" alt="Elegant Mercedes at Tanglewood music center in Lenox, Massachusetts" data-caption="Tanglewood — Lenox" class="gallery-img w-full aspect-video object-cover">
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-[#d1c9b8]/50">
+        <img src="images/6.jpg" alt="Chauffeur assisting guests with a luxury sedan at a historic Berkshire estate" data-caption="Private estate service" class="gallery-img w-full aspect-video object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-[#f8f5f0] border-y border-[#d1c9b8]">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="text-center mb-10">
+        <div class="text-[#c9a227] text-xs tracking-[3px] font-medium">REAL JOURNEYS</div>
+        <h4 class="heading-serif text-[#0f2c24] text-3xl mt-2">What our clients say</h4>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="testimonial-card bg-white border border-[#d1c9b8]/70 p-7 rounded-3xl">
+          <div class="flex gap-0.5 text-[#c9a227] mb-4">★★★★★</div>
+          <p class="text-[#4b4b42] italic">“Our driver was waiting right at baggage claim with a sign and the car was immaculate. Made our trip to Tanglewood completely stress-free. We’ll never use anyone else.”</p>
+          <div class="mt-6 text-sm">
+            <span class="font-medium text-[#0f2c24]">— The Patel Family</span><br>
+            <span class="text-xs text-[#6b6b5f]">Boston → Lenox, July 2024</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card bg-white border border-[#d1c9b8]/70 p-7 rounded-3xl">
+          <div class="flex gap-0.5 text-[#c9a227] mb-4">★★★★★</div>
+          <p class="text-[#4b4b42] italic">“Used Berkshire Trips for our daughter’s wedding weekend. They handled four separate trips flawlessly and even helped elderly guests with luggage. Truly first class.”</p>
+          <div class="mt-6 text-sm">
+            <span class="font-medium text-[#0f2c24]">— Sarah &amp; Michael R.</span><br>
+            <span class="text-xs text-[#6b6b5f]">Stockbridge wedding, October 2024</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card bg-white border border-[#d1c9b8]/70 p-7 rounded-3xl">
+          <div class="flex gap-0.5 text-[#c9a227] mb-4">★★★★★</div>
+          <p class="text-[#4b4b42] italic">“I fly into Albany several times a month for work. My usual driver knows my preferences and always has the car at the exact right spot. Consistent excellence.”</p>
+          <div class="mt-6 text-sm">
+            <span class="font-medium text-[#0f2c24]">— David Chen</span><br>
+            <span class="text-xs text-[#6b6b5f]">Pittsfield resident &amp; frequent flyer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+      <div class="text-xs font-semibold tracking-widest text-[#c9a227]">THREE SIMPLE STEPS</div>
+      <h3 class="heading-serif text-4xl text-[#0f2c24] mt-3">How to book your ride</h3>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div>
+        <div class="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-[#0f2c24] text-[#c9a227] font-semibold mb-5 text-xl">1</div>
+        <div class="font-medium text-xl mb-2 text-[#0f2c24]">Request</div>
+        <p class="text-[#4b4b42] text-sm leading-snug">Use our online form or call us. Tell us where and when you need to go.</p>
+      </div>
+      <div>
+        <div class="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-[#0f2c24] text-[#c9a227] font-semibold mb-5 text-xl">2</div>
+        <div class="font-medium text-xl mb-2 text-[#0f2c24]">Confirm</div>
+        <p class="text-[#4b4b42] text-sm leading-snug">We’ll reply quickly with availability, exact pricing, and your chauffeur’s details.</p>
+      </div>
+      <div>
+        <div class="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-[#0f2c24] text-[#c9a227] font-semibold mb-5 text-xl">3</div>
+        <div class="font-medium text-xl mb-2 text-[#0f2c24]">Relax</div>
+        <p class="text-[#4b4b42] text-sm leading-snug">Your chauffeur arrives 5–10 minutes early. Enjoy the ride — we handle everything else.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / RESERVATIONS -->
+  <section id="contact" class="bg-[#0f2c24] text-white py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-12 gap-x-12 gap-y-14">
+        
+        <div class="md:col-span-5">
+          <div class="uppercase tracking-[3px] text-xs text-[#c9a227] mb-4">LET’S GET YOU ON THE ROAD</div>
+          <h2 class="heading-serif text-white text-5xl leading-none tracking-[-1.4px]">Ready when you are.</h2>
+          
+          <div class="mt-8 space-y-8 text-sm">
+            <div>
+              <div class="text-[#c9a227] text-xs tracking-widest mb-1.5">EMAIL FOR RESERVATIONS</div>
+              <a href="mailto:queensarahhh413@gmail.com" class="text-2xl font-medium hover:text-[#c9a227] transition">queensarahhh413@gmail.com</a>
+            </div>
+
+            <div>
+              <div class="text-[#c9a227] text-xs tracking-widest mb-1.5">OFFICE LOCATION</div>
+              <div class="text-white/90">42 Park Street<br>Adams, MA 01220</div>
+              <div class="text-xs text-white/60 mt-1">By appointment only • Vehicles dispatched from Adams</div>
+            </div>
+
+            <div>
+              <div class="text-[#c9a227] text-xs tracking-widest mb-1.5">CALL OR TEXT</div>
+              <a href="tel:14135550198" class="font-medium text-xl">(413) 555-0198</a>
+              <div class="text-xs text-white/60 mt-0.5">Daily 6:00am – 11:00pm</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick contact card -->
+        <div class="md:col-span-7 bg-white/5 rounded-3xl p-8 md:p-10 border border-white/10">
+          <div class="mb-6">
+            <div class="text-lg font-medium">Have questions or need a quote?</div>
+            <p class="text-white/70 text-sm mt-1">Fill out the form below and we’ll respond within a few hours. For same-day service, please call.</p>
+          </div>
+
+          <form id="quick-contact-form" class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
+            <input type="text" name="name" placeholder="Your name" required 
+                   class="bg-white/95 border border-white/30 placeholder:text-[#6b6b5f] text-[#0f2c24] px-5 py-3 rounded-2xl text-sm focus:outline-none focus:border-[#c9a227]">
+            <input type="tel" name="phone" placeholder="Phone number" required 
+                   class="bg-white/95 border border-white/30 placeholder:text-[#6b6b5f] text-[#0f2c24] px-5 py-3 rounded-2xl text-sm focus:outline-none focus:border-[#c9a227]">
+            
+            <input type="email" name="email" placeholder="Email address" required 
+                   class="bg-white/95 border border-white/30 placeholder:text-[#6b6b5f] text-[#0f2c24] px-5 py-3 rounded-2xl text-sm sm:col-span-2 focus:outline-none focus:border-[#c9a227]">
+            
+            <textarea name="message" rows="3" placeholder="Tell us about your trip (dates, locations, # of passengers, etc.)" required
+                      class="bg-white/95 border border-white/30 placeholder:text-[#6b6b5f] text-[#0f2c24] px-5 py-3 rounded-3xl text-sm sm:col-span-2 resize-y min-h-[92px] focus:outline-none focus:border-[#c9a227]"></textarea>
+
+            <button type="submit"
+                    class="sm:col-span-2 mt-2 py-3.5 rounded-2xl font-semibold bg-[#c9a227] text-[#0f2c24] hover:bg-[#d4b34a] active:bg-[#b38b2e] transition text-base">
+              Send Message
+            </button>
+          </form>
+          
+          <div class="text-center text-[10px] text-white/40 mt-4 tracking-wider">WE TYPICALLY REPLY WITHIN 2 HOURS DURING BUSINESS HOURS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-white/70 text-sm">
+    <div class="max-w-6xl mx-auto px-6 py-9 flex flex-col md:flex-row gap-y-3 md:items-center justify-between border-t border-white/10">
+      <div>© <span id="year"></span> Berkshire Trips Livery Service. All rights reserved.</div>
+      <div class="flex gap-x-5">
+        <a href="#pricing" class="hover:text-white">Rates</a>
+        <a href="#gallery" class="hover:text-white">Gallery</a>
+        <a href="mailto:queensarahhh413@gmail.com" class="hover:text-white">Reservations</a>
+      </div>
+      <div class="text-xs">Adams, Massachusetts • Proudly serving Western MA</div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="booking-modal" class="hidden fixed inset-0 bg-black/70 z-[70] items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden" id="booking-modal-content">
+      <div class="px-8 pt-8 pb-6">
+        <div class="flex justify-between items-start mb-5">
+          <div>
+            <div class="font-semibold text-2xl tracking-tight text-[#0f2c24]">Reserve Your Ride</div>
+            <div class="text-sm text-[#6b6b5f]">We’ll confirm within a few hours</div>
+          </div>
+          <button data-close-modal class="text-[#6b6b5f] hover:text-black p-1">✕</button>
+        </div>
+
+        <form id="booking-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">FULL NAME</label>
+              <input type="text" name="name" required class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">PHONE NUMBER</label>
+              <input type="tel" id="booking-phone" name="phone" required class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#6b6b5f] mb-1">EMAIL</label>
+            <input type="email" name="email" placeholder="you@example.com" required class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">PICKUP LOCATION</label>
+              <input type="text" name="pickup" placeholder="Hotel, address, or airport" required class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">DROP-OFF LOCATION</label>
+              <input type="text" name="dropoff" placeholder="Destination address" required class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">DATE</label>
+              <input type="date" id="booking-date" name="date" required class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">TIME</label>
+              <input type="time" name="time" required class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">PASSENGERS</label>
+              <select name="passengers" class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm bg-white">
+                <option>1 passenger</option>
+                <option>2 passengers</option>
+                <option>3 passengers</option>
+                <option>4 passengers</option>
+                <option>5–6 passengers</option>
+                <option>7+ passengers (van)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#6b6b5f] mb-1">PREFERRED VEHICLE</label>
+              <select name="vehicle" class="w-full border border-[#d1c9b8] rounded-2xl px-4 py-2.5 text-sm bg-white">
+                <option>Executive Sedan</option>
+                <option>Premium SUV</option>
+                <option>Luxury Van / Sprinter</option>
+                <option>No preference</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-[#6b6b5f] mb-1">NOTES OR SPECIAL REQUESTS</label>
+            <textarea name="notes" id="booking-notes" rows="2" placeholder="Flight number, child seat, extra stops, accessibility needs..." class="w-full border border-[#d1c9b8] rounded-3xl px-4 py-2.5 text-sm"></textarea>
+          </div>
+
+          <div class="pt-3 flex gap-3">
+            <button type="button" data-close-modal 
+                    class="flex-1 py-3 rounded-2xl border border-[#0f2c24]/20 text-sm font-medium hover:bg-[#f8f5f0]">Cancel</button>
+            <button type="submit" 
+                    class="flex-1 py-3 rounded-2xl font-semibold btn-gold text-base">Send Reservation Request</button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="bg-[#f8f5f0] px-8 py-4 text-[10px] text-center text-[#6b6b5f]">
+        Your request will open in your email app addressed to <span class="font-medium">queensarahhh413@gmail.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="hidden fixed inset-0 z-[80] bg-black/95 items-center justify-center p-4">
+    <div class="relative max-w-6xl w-full">
+      <button id="lightbox-close" class="absolute -top-3 -right-3 md:right-0 text-white/70 hover:text-white z-10 bg-black/50 rounded-full p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+
+      <img id="lightbox-img" class="mx-auto rounded-2xl shadow-2xl" alt="Enlarged view">
+
+      <div id="lightbox-caption" class="text-center mt-4 text-white/70 text-sm tracking-wide"></div>
+
+      <button id="lightbox-prev" class="absolute top-1/2 -left-3 md:-left-4 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+      <button id="lightbox-next" class="absolute top-1/2 -right-3 md:-right-4 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" /></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Tailwind config
+    function initializeTailwind() {
+      document.documentElement.style.setProperty('--accent-gold', '#c9a227');
+    }
+    
+    // Set copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Quick contact form -> also uses mailto
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTailwind();
+
+      const quickForm = document.getElementById('quick-contact-form');
+      if (quickForm) {
+        quickForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const fd = new FormData(quickForm);
+          const name = fd.get('name');
+          const phone = fd.get('phone');
+          const email = fd.get('email');
+          const message = fd.get('message');
+
+          const subject = encodeURIComponent(`Website Inquiry from ${name}`);
+          const body = encodeURIComponent(
+            `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`
+          );
+
+          window.location.href = `mailto:queensarahhh413@gmail.com?subject=${subject}&body=${body}`;
+
+          // Reset and nice toast
+          setTimeout(() => {
+            quickForm.reset();
+            const orig = quickForm.innerHTML;
+            quickForm.innerHTML = `<div class="col-span-2 text-center py-6 text-white">Thank you! Your email client should be opening now.</div>`;
+            setTimeout(() => {
+              if (quickForm) quickForm.innerHTML = orig;
+            }, 4200);
+          }, 650);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
